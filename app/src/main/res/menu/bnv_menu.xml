@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/it_home"
+        android:icon="@drawable/round_home_24"
+        android:title="@string/home"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/it_search"
+        android:icon="@drawable/search"
+        android:title="@string/search"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/it_exams"
+        android:icon="@drawable/exams"
+        android:title="@string/exams"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/it_wishlist"
+        android:icon="@drawable/round_bookmark_border_24"
+        android:title="@string/wishlist"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/it_account"
+        android:icon="@drawable/outline_account_circle_24"
+        android:title="@string/account"
+        app:showAsAction="ifRoom"/>
+</menu>

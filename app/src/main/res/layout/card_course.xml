@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:elevation="8dp"
+    app:cardCornerRadius="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_itemCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/iv_iconCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:src="@drawable/icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/margin_42dp"
+            android:layout_marginBottom="@dimen/margin_42dp"
+            android:layout_marginStart="@dimen/margin_25dp"
+            android:contentDescription="@string/icon_course" />
+
+        <TextView
+            android:id="@+id/tv_titleCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Rizal Nur"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_iconCourse"
+            android:layout_marginTop="@dimen/margin_14dp"
+            android:layout_marginStart="@dimen/margin_41dp" />
+
+        <TextView
+            android:id="@+id/tv_taskQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="8/10"
+            app:layout_constraintStart_toStartOf="@id/tv_titleCourse"
+            app:layout_constraintTop_toBottomOf="@+id/tv_titleCourse"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:textColor="@color/purple"/>
+
+        <TextView
+            android:id="@+id/tv_taskQuestionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/question"
+            app:layout_constraintStart_toEndOf="@+id/tv_taskQuestion"
+            app:layout_constraintTop_toBottomOf="@+id/tv_titleCourse"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tv_timeRemining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="30min"
+            app:layout_constraintStart_toStartOf="@id/tv_titleCourse"
+            app:layout_constraintTop_toBottomOf="@+id/tv_taskQuestion"
+            android:textColor="@color/purple"/>
+
+        <TextView
+            android:id="@+id/tv_timeReminingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time"
+            app:layout_constraintStart_toEndOf="@+id/tv_timeRemining"
+            app:layout_constraintTop_toBottomOf="@+id/tv_taskQuestion"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/black"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_statusCourse"
+            android:layout_width="@dimen/width_161dp"
+            android:layout_height="@dimen/height_35dp"
+            android:text="Completed"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_button_course"
+            app:layout_constraintStart_toStartOf="@id/tv_titleCourse"
+            app:layout_constraintTop_toBottomOf="@id/tv_timeRemining"
+            android:layout_marginTop="@dimen/margin_8dp" />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:clickable="true"
+            tools:src="@drawable/trash"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="@dimen/margin_25dp"
+            android:layout_marginTop="20dp"
+            android:focusable="true"
+            android:contentDescription="@string/trash_icon" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>

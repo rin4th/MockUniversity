@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bnv_nav_graph"
+    app:startDestination="@id/it_home">
+
+    <fragment
+        android:id="@+id/it_account"
+        android:name="com.example.mockuniversity.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/it_exams"
+        android:name="com.example.mockuniversity.ExamsFragment"
+        android:label="fragment_exams"
+        tools:layout="@layout/fragment_exams" />
+    <fragment
+        android:id="@+id/it_home"
+        android:name="com.example.mockuniversity.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/it_wishlist"
+        android:name="com.example.mockuniversity.WishlistFragment"
+        android:label="fragment_wishlist"
+        tools:layout="@layout/fragment_wishlist" />
+    <fragment
+        android:id="@+id/it_search"
+        android:name="com.example.mockuniversity.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+</navigation>

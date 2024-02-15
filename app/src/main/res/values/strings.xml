@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Mock University</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="icon_course">Icon Course</string>
+    <string name="trash_icon">trash_icon</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="exams">Exams</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="account">Account</string>
+    <string name="question">question</string>
+    <string name="time">time</string>
+
+    <string-array name="data_name">
+        <item>React JS</item>
+        <item>Node JS</item>
+        <item>Angular JS</item>
+        <item>Vue JS</item>
+        <item>Laravel</item>
+        <item>Codeigniter</item>
+        <item>Spring Boot</item>
+        <item>Express JS</item>
+        <item>Flask</item>
+    </string-array>
+
+    <array name="data_question">
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+    </array>
+
+    <array name="data_time">
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+    </array>
+
+    <array name="data_reward">
+        <item>100</item>
+        <item>200</item>
+        <item>100</item>
+        <item>200</item>
+        <item>100</item>
+        <item>200</item>
+        <item>100</item>
+        <item>200</item>
+        <item>100</item>
+    </array>
+
+    <array name="data_icon">
+        <item>@drawable/icon</item>
+        <item>@drawable/icon</item>
+        <item>@drawable/icon</item>
+        <item>@drawable/icon</item>
+        <item>@drawable/icon</item>
+        <item>@drawable/icon</item>
+        <item>@drawable/icon</item>
+        <item>@drawable/icon</item>
+        <item>@drawable/icon</item>
+    </array>
+
+    <array name="data_banner">
+        <item>@drawable/banner</item>
+        <item>@drawable/banner</item>
+        <item>@drawable/banner</item>
+        <item>@drawable/banner</item>
+        <item>@drawable/banner</item>
+        <item>@drawable/banner</item>
+        <item>@drawable/banner</item>
+        <item>@drawable/banner</item>
+        <item>@drawable/banner</item>
+    </array>
+
+
+</resources>
