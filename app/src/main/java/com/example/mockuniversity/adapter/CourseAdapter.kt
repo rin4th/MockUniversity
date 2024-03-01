@@ -7,10 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.mockuniversity.R
 import com.example.mockuniversity.model.Course
 
-class CourseAdapter(private var courses: List<Course>) :
+class CourseAdapter(private var courses: List<Course>, private val onItemClick: (Course) -> Unit) :
     RecyclerView.Adapter<CourseAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -19,12 +20,16 @@ class CourseAdapter(private var courses: List<Course>) :
         private var name: TextView = itemView.findViewById(R.id.tv_titleCourse)
         private var question: TextView = itemView.findViewById(R.id.tv_taskQuestion)
         private var time: TextView = itemView.findViewById(R.id.tv_timeRemining)
+        private var status: TextView = itemView.findViewById(R.id.btn_statusCourse)
 
         fun bind(course: Course) {
-            icon.setImageResource(course.icon)
+            Glide.with(itemView.context)
+                .load(course.icon)
+                .into(icon)
             name.text = course.name
             question.text = course.question.toString()
             time.text = course.duration.toString()
+            status.text = course.status.toString()
         }
 
     }
@@ -41,6 +46,9 @@ class CourseAdapter(private var courses: List<Course>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(courses[position])
+        holder.itemView.setOnClickListener{
+            onItemClick(courses[position])
+        }
     }
 
     fun updateCourses(newCourse: List<Course>) {

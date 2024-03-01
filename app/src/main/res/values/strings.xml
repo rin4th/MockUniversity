@@ -10,6 +10,9 @@
     <string name="account">Account</string>
     <string name="question">question</string>
     <string name="time">time</string>
+    <string name="iv_back">iv_back</string>
+    <string name="iv_bookrmark_course">iv_bookrmark_course</string>
+    <string name="bannercourse">bannerCourse</string>
 
     <string-array name="data_name">
         <item>React JS</item>

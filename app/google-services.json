@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "606556903152",
+    "project_id": "motionstudygroup",
+    "storage_bucket": "motionstudygroup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606556903152:android:fb545e33754d84e0099435",
+        "android_client_info": {
+          "package_name": "com.example.mockuniversity"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASeCdSJJoKBUkD4plDhxRlQ7F6ZZzF3v4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

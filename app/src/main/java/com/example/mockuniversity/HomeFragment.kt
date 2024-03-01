@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mockuniversity.adapter.CourseAdapter
 import com.example.mockuniversity.model.Course
-
+import com.example.mockuniversity.model.CourseStatus
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class HomeFragment : Fragment() {
@@ -45,18 +47,51 @@ class HomeFragment : Fragment() {
         rv = view.findViewById(R.id.rv_course)
 
         prepareResource()
-        prepareRecyclerView()
-        prepareCourses()
-        prepareAdapter()
+        //        prepareCourses()
     }
 
     private fun prepareResource() {
-        dataName = resources.getStringArray(R.array.data_name)
-        dataQuestion = resources.getIntArray(R.array.data_question).toTypedArray()
-        dataTime = resources.getIntArray(R.array.data_time).toTypedArray()
-        dataReward = resources.getIntArray(R.array.data_reward).toTypedArray()
-        dataIcon = resources.obtainTypedArray(R.array.data_icon)
-        dataBanner = resources.obtainTypedArray(R.array.data_banner)
+//        dataName = resources.getStringArray(R.array.data_name)
+//        dataQuestion = resources.getIntArray(R.array.data_question).toTypedArray()
+//        dataTime = resources.getIntArray(R.array.data_time).toTypedArray()
+//        dataReward = resources.getIntArray(R.array.data_reward).toTypedArray()
+//        dataIcon = resources.obtainTypedArray(R.array.data_icon)
+//        dataBanner = resources.obtainTypedArray(R.array.data_banner)
+
+        val db = FirebaseFirestore.getInstance()
+        val coursesRef = db.collection("courses")
+
+        coursesRef.get().addOnCompleteListener { task ->
+            if (task.isSuccessful){
+                courses.clear()
+                for (document in task.result!!){
+                    val courseData = document.data!!
+                    val name = courseData["name"] as String
+                    val question = (courseData["question"] as Long).toInt()
+                    val time = (courseData["duration"] as Long).toInt()
+                    val reward = (courseData["reward"] as Long).toInt()
+                    val icon = courseData["icon"] as String
+                    val banner = courseData["banner"] as String
+                    val status = CourseStatus.valueOf(courseData["status"] as String)
+                    val description = courseData["description"] as String
+
+                    // prepareCourses
+                    val course = Course(
+                        name,
+                        question,
+                        time,
+                        reward,
+                        icon,
+                        banner,
+                        status,
+                        description
+                    )
+                    courses.add(course)
+                }
+                prepareRecyclerView()
+                prepareAdapter()
+            }
+        }
     }
 
     private fun prepareRecyclerView() {
@@ -64,26 +99,31 @@ class HomeFragment : Fragment() {
         rv.setHasFixedSize(true)
     }
 
-    private fun prepareCourses() {
-        if (courses.isNotEmpty()) courses.clear()
-        for (position in dataName.indices) {
-            val course = Course(
-                dataName[position],
-                dataQuestion[position],
-                dataTime[position],
-                dataReward[position],
-                dataIcon.getResourceId(position, -1),
-                dataBanner.getResourceId(position, -1)
-            )
-            courses.add(course)
-        }
-    }
+//    private fun prepareCourses() {
+//        if (courses.isNotEmpty()) courses.clear()
+//        for (position in dataName.indices) {
+//            val course = Course(
+//                dataName[position],
+//                dataQuestion[position],
+//                dataTime[position],
+//                dataReward[position],
+//                dataIcon[position],
+//                dataBanner[position])
+//            )
+//            courses.add(course)
+//        }
+//    }
 
     private fun prepareAdapter() {
         if(::courseAdapter.isInitialized){
             courseAdapter.updateCourses(courses)
         } else {
-            courseAdapter = CourseAdapter(courses)
+            courseAdapter = CourseAdapter(courses){course ->
+
+                Toast.makeText(requireContext(), "Clicked on ${course.name}", Toast.LENGTH_SHORT).show()
+//                val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(course)
+//                view?.findNavController()?.navigate(action)
+            }
         }
 
         rv.adapter = courseAdapter

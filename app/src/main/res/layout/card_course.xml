@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/iv_iconCourse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/margin_25dp"
+            android:layout_height="@dimen/margin_42dp"
             tools:src="@drawable/icon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -57,7 +57,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_titleCourse"
             android:layout_marginTop="@dimen/margin_8dp"
             android:layout_marginStart="4dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/grey"/>
 
         <TextView
             android:id="@+id/tv_timeRemining"
@@ -76,13 +76,13 @@
             app:layout_constraintStart_toEndOf="@+id/tv_timeRemining"
             app:layout_constraintTop_toBottomOf="@+id/tv_taskQuestion"
             android:layout_marginStart="4dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/grey"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_statusCourse"
             android:layout_width="@dimen/width_161dp"
             android:layout_height="@dimen/height_35dp"
-            android:text="Completed"
+            tools:text="COMPLETED"
             android:textColor="@color/white"
             android:background="@drawable/bg_button_course"
             app:layout_constraintStart_toStartOf="@id/tv_titleCourse"
@@ -93,7 +93,7 @@
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:clickable="true"
-            tools:src="@drawable/trash"
+            android:src="@drawable/trash"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginEnd="@dimen/margin_25dp"
