@@ -13,6 +13,14 @@
     <string name="iv_back">iv_back</string>
     <string name="iv_bookrmark_course">iv_bookrmark_course</string>
     <string name="bannercourse">bannerCourse</string>
+    <string name="iv_icon_question">icon question</string>
+
+    <string name="total_question">%s Question</string>
+    <string name="total_question_detail">%s point for a correct answer</string>
+    <string name="total_time">%s hour %s min</string>
+    <string name="total_reward">Win %s star</string>
+    <string name="answer_all_questions_correctly">Answer all questions correctly</string>
+    <string name="total_duration_of_the_quiz">total duration of the quiz</string>
 
     <string-array name="data_name">
         <item>React JS</item>

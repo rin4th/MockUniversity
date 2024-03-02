@@ -14,6 +14,11 @@ import com.example.mockuniversity.model.Course
 class CourseAdapter(private var courses: List<Course>, private val onItemClick: (Course) -> Unit) :
     RecyclerView.Adapter<CourseAdapter.ViewHolder>() {
 
+    private lateinit var onItemClickCallback: OnItemClickListener
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickListener) {
+        this.onItemClickCallback = onItemClickCallback
+    }
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private var icon: ImageView = itemView.findViewById(R.id.iv_iconCourse)
@@ -47,8 +52,12 @@ class CourseAdapter(private var courses: List<Course>, private val onItemClick: 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(courses[position])
         holder.itemView.setOnClickListener{
-            onItemClick(courses[position])
+            onItemClickCallback.onItemClick(courses[position].id)
         }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(courseId: String)
     }
 
     fun updateCourses(newCourse: List<Course>) {

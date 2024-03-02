@@ -19,7 +19,11 @@
         android:id="@+id/it_home"
         android:name="com.example.mockuniversity.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_it_home_to_courseFragment2"
+            app:destination="@id/courseFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/it_wishlist"
         android:name="com.example.mockuniversity.WishlistFragment"
@@ -30,4 +34,14 @@
         android:name="com.example.mockuniversity.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/courseFragment2"
+        android:name="com.example.mockuniversity.CourseFragment"
+        android:label="fragment_course"
+        tools:layout="@layout/fragment_course" >
+        <argument
+            android:name="courseId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>

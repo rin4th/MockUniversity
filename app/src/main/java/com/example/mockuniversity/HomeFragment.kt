@@ -2,11 +2,14 @@ package com.example.mockuniversity
 
 import android.content.res.TypedArray
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mockuniversity.adapter.CourseAdapter
@@ -17,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeFragment : Fragment() {
 
-    private lateinit var rv : RecyclerView
+    private lateinit var rv: RecyclerView
 
     private lateinit var dataName: Array<String>
     private lateinit var dataQuestion: Array<Int>
@@ -62,10 +65,11 @@ class HomeFragment : Fragment() {
         val coursesRef = db.collection("courses")
 
         coursesRef.get().addOnCompleteListener { task ->
-            if (task.isSuccessful){
+            if (task.isSuccessful) {
                 courses.clear()
-                for (document in task.result!!){
+                for (document in task.result!!) {
                     val courseData = document.data!!
+                    val id = document.id
                     val name = courseData["name"] as String
                     val question = (courseData["question"] as Long).toInt()
                     val time = (courseData["duration"] as Long).toInt()
@@ -77,6 +81,7 @@ class HomeFragment : Fragment() {
 
                     // prepareCourses
                     val course = Course(
+                        id,
                         name,
                         question,
                         time,
@@ -115,18 +120,29 @@ class HomeFragment : Fragment() {
 //    }
 
     private fun prepareAdapter() {
-        if(::courseAdapter.isInitialized){
+        if (::courseAdapter.isInitialized) {
             courseAdapter.updateCourses(courses)
         } else {
-            courseAdapter = CourseAdapter(courses){course ->
+            courseAdapter = CourseAdapter(courses) { course ->
 
-                Toast.makeText(requireContext(), "Clicked on ${course.name}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Clicked on ${course.name}", Toast.LENGTH_SHORT)
+                    .show()
 //                val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(course)
 //                view?.findNavController()?.navigate(action)
             }
         }
-
+        courseAdapter.setOnItemClickCallback(object : CourseAdapter.OnItemClickListener {
+            override fun onItemClick(courseId: String) {
+                navigateToDetail(courseId)
+            }
+        })
         rv.adapter = courseAdapter
+    }
+
+    private fun navigateToDetail(courseId: String) {
+        val action = HomeFragmentDirections.actionItHomeToCourseFragment2(courseId)
+        Log.d("HomeFragment", "navigateToDetail: $courseId")
+        findNavController().navigate(action)
     }
 
 }
